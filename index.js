@@ -1,15 +1,14 @@
+// index.js
 const axios = require('axios');
 
 async function sendImages(webhookUrl, apiUrl, numberOfImages, method = 'GET') {
   try {
-    let response;
-    if (method.toUpperCase() === 'GET') {
-      response = await axios.get(`${apiUrl}&limit=${numberOfImages}`);
-    } else if (method.toUpperCase() === 'POST') {
-      response = await axios.post(apiUrl, { numberOfImages });
-    } else {
-      throw new Error('Unsupported HTTP method. Only GET and POST are supported.');
-    }
+    const response = await axios({
+      method: method.toUpperCase(), // Ensure method is uppercase
+      url: apiUrl,
+      data: { numberOfImages }, // For POST requests, send data in the request body
+      params: method.toUpperCase() === 'GET' ? { limit: numberOfImages } : {}, // For GET requests, send params
+    });
 
     if (response.data && response.data.images && response.data.images.length > 0) {
       for (let i = 0; i < numberOfImages; i++) {
@@ -25,6 +24,4 @@ async function sendImages(webhookUrl, apiUrl, numberOfImages, method = 'GET') {
   }
 }
 
-module.exports = {
-  sendImages
-};
+module.exports = sendImages;

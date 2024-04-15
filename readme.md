@@ -15,15 +15,15 @@ npm i uncai
 You can use the package as follows:
 
 ```javascript
-const runWebhook = require('uncai');
-const axios = require('axios');
+const sendImages = require("uncai");
 
-const webhookUrl = 'DISCORD_WEBHOOK';
-const apiEndpoint = 'API_LINK';
-const desiredData = ['?']; //url etc
-const intervalTime = ?; //time to send the message in sec
+const webhookUrl = ''; //webhook url
+const apiUrl = ''; //api url
+const method = 'GET'; // or 'POST' if desired
+const numberOfImagesToSend = ; //no of images to be sent
 
-runWebhook(webhookUrl, apiEndpoint, desiredData, intervalTime);
+sendImages(webhookUrl, apiUrl, numberOfImagesToSend, method);
+
 ```
 
 **The code above will send a webhook with desired data from API endpoint every intervalTime seconds to the specified webhookUrl.**

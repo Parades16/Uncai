@@ -1,16 +1,19 @@
 {
   "name": "uncai",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.3",
+  "description": "This Node.js module fetches image URLs from one or more APIs and sends them to their corresponding Discord webhooks—fully automated and parallel-mapped.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parades16/Uncai.git"
+  },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/node": "^18.0.6",
-    "node-fetch": "^3.2.6"
-  }
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Parades16/Uncai/issues"
+  },
+  "homepage": "https://github.com/Parades16/Uncai#readme"
 }

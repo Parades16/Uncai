@@ -1,6 +1,15 @@
 # Uncai
 
-A simple package for sending webhooks with interval time and desired data from API endpoint.
+This Node.js module fetches image URLs from one or more APIs and sends them to their corresponding Discord webhooks—fully automated and parallel-mapped.
+
+# New
+
+* More than 1 api and webhooks can be used
+* Optimised
+
+
+
+
 
 ## Installation
 
@@ -12,21 +21,31 @@ npm i uncai
 
 ## Usage
 
-You can use the package as follows:
+You can use the package as followed:
 
 ```javascript
-const sendImages = require("uncai");
+const sendImages = require('uncai');
+const axios = require("axios")
 
-const webhookUrl = ''; //webhook url
-const apiUrl = ''; //api url
-const method = 'GET'; // or 'POST' if desired
-const numberOfImagesToSend = ; //no of images to be sent
+const webhooks = [
+'https://discord.com/api/webhooks/../..',
+'https://discord.com/api/webhooks/../..',
+'https://discord.com/api/webhooks/../..', //and so on
+].join(',');
 
-sendImages(webhookUrl, apiUrl, numberOfImagesToSend, method);
+
+
+const apis = [
+  'api1',
+  'api2', //and so on
+].join(',');
+
+const numberOfImages = x;  // how many images per apis endpoint
+const method  = 'GET'; //GET, URL etc 
+
+sendImages(webhooks, apis, numberOfImages, method)
 
 ```
-
-**The code above will send a webhook with desired data from API endpoint every intervalTime seconds to the specified webhookUrl.**
 
 **Contributing**
 
